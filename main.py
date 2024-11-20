@@ -10,9 +10,14 @@ print(connessione_db)
 puntatore = connessione_db.cursor()
 
 
-def crea_tabella():
+def crea_database(nome):
     # CREA TABELLA
-    puntatore.execute("CREATE DATABASE tabella")
+    puntatore.execute(f"CREATE DATABASE {nome}")
+
+
+def crea_tabella(tabella):
+    # CREA TABELLA
+    puntatore.execute(f"CREATE TABLE {tabella}")
 
 
 def vedi_tabelle_esistenti():
@@ -55,7 +60,16 @@ def modifica(query):
 def mostra_tutto():
     fai_query("SELECT * FROM clienti")
 
+## MODIFICA
+# modifica("UPDATE clienti SET nome='valentina' WHERE id=12")
 
-mostra_tutto()
-modifica("UPDATE clienti SET nome='valentina' WHERE id=12")
-mostra_tutto()
+## TODO RIVEDERE I JOIN
+## JOIN
+# fai_query("SELECT nome, citta.Name, citta.CountryCode FROM clienti INNER JOIN citta ON clienti.città = citta.ID ")
+
+## CREA TABELLA
+# crea_tabella("provaa1 (c1 VARCHAR(255), c2 VARCHAR(255))")
+
+## ELIMINA TABELLA
+# query = "DROP TABLE IF EXISTS provaa1"
+# puntatore.execute(query)
