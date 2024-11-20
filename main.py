@@ -1,10 +1,12 @@
 import mysql.connector
 
+database = input("inserisci database")
+password = input("inserisci password database")
 connessione_db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="Bariale2024",
-    database="tabella"
+    password=password,
+    database=database
 )
 print(connessione_db)
 puntatore = connessione_db.cursor()
